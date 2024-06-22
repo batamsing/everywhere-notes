@@ -1,0 +1,17 @@
+.home-container {
+    display: flex;
+    background-color: aliceblue;
+    padding: 20px 0px;
+    min-height: 100vh;
+
+}
+
+.sidebar-section {
+    display: flex;
+    flex-direction: column;
+    border-right: 1px solid gray;
+}
+
+.note-section {
+    width: 70%;
+}

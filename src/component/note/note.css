@@ -1,0 +1,61 @@
+.note-container {
+    display: flex;
+    position: releative;
+    padding: 20px 20px;
+}
+
+.edit-container {
+    display: flex;
+    width: 100%;
+    gap: 20px;
+    flex-direction: column;
+}
+
+.save-btn {
+    position: absolute;
+    right: 20px;
+    background-color: rgb(95, 95, 95);
+    outline: none;
+    border-radius: 8px;
+    padding: 10px;
+    border: none;
+    width: 100px;
+    font-weight: 500;
+    color: white;
+    font-size: large;
+    cursor: pointer;
+    transition: 0.2s ease;
+}
+
+.save-btn:hover {
+    background-color: rgb(58, 58, 58);
+}
+
+.edit-container> input, .edit-container>textarea {
+    resize: none;
+    color: black;
+    width: 100%;
+    border: none;
+    background: none;
+}
+
+.edit-container > input {
+    height: 50px;
+    font-size: 30px;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.3);
+}
+
+.edit-container > textarea {
+    font-size: 16px;
+    height: 100vh;
+}
+
+.no-active-note, .saving {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-size: 5em;
+    font-weight: bold;
+    color: rgb(95, 95, 95);
+}

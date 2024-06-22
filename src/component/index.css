@@ -1,0 +1,108 @@
+/* * {
+    margin: 0;
+}
+
+.sidebar-container {
+    width: 30%;
+    border-right: 1px solid rgb(172, 172, 172);
+    height: 100vh;
+}
+
+.sidebar-header {
+    display: flex;
+    padding: 20px;
+    margin-bottom: 10px;
+    justify-content: space-between;
+    border-bottom: 1px solid silver;
+    box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+.sidebar-header button {
+    color: rgb(0, 218, 218);
+    font-size: large;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: 0.1s ease-in;
+}
+
+.sidebar-header button:hover {
+    color: aqua;
+}
+
+.sidebar-notes {
+    padding: 10px 20px;
+    transition: 0.2s ease;
+    cursor: text;
+}
+
+.sidebar-active-note {
+    background-color: antiquewhite;
+}
+
+.sidebar-notes:hover {
+    background-color: aliceblue;
+}
+
+.sidebar-note-title {
+    display: flex;
+    font-size: 20px;
+    justify-content: space-between;
+}
+
+.sidebar-note-title button {
+    border: none;
+    background: none;
+    font: large;
+    transition: 0.2s;
+}
+
+.sidebar-note-title button:hover {
+    color: red;
+    cursor: pointer;
+}
+
+.main-container {
+    background-color: rgb(226, 226, 226);
+    padding: 20px;
+    width: 69.999%;
+}
+
+.edit-container {
+    display: flex;
+    width: 100%;
+    height: 40vh;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.edit-container input {
+    font-size: 30px;
+    outline: none;
+    border: none;
+}
+
+.edit-container input,
+.edit-container textarea {
+  width: 100%;
+  padding: 5px 10px;
+  border-radius: 5px;
+  border: none;
+  box-shadow: 2px 1px 3px rgba(0, 0, 0, 0.5);;
+  box-sizing: border-box;
+}
+
+.edit-container textarea {
+    font-size: 16px;
+    height: 100%;
+    resize: none;
+}
+
+.no-active-note {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 40px;
+    font-weight: 600;
+    color: rgb(122, 122, 122);
+} */

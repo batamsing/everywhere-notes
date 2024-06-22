@@ -1,0 +1,41 @@
+
+
+.sidebar-container {
+    padding: 20px;
+}
+
+.sidebar-notes {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    border-radius: 8px;
+    transition: 0.3s ease;
+    cursor: text;
+}
+
+.sidebar-notes:hover {
+    background: rgba(182, 182, 182, 0.2);;
+}
+
+.del-button {
+    border: none;
+    font-size: 30px;
+    background: none;
+    transition: 0.2s ease;
+    cursor: pointer;
+}
+
+.del-button:hover {
+    color: red;
+}
+
+.sidebar-active-note {
+    background-color: rgb(95, 95, 95);
+    color: white;
+}
+
+.sidebar-active-note:hover {
+    background-color: rgb(95, 95, 95);
+    color: white;
+}

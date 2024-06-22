@@ -1,0 +1,63 @@
+.header-container {
+    display: flex;
+    gap: 50px;
+    align-items: center;  /* May require adjustments for complex content */
+    height: auto;
+    padding-bottom: 20px;
+    border-bottom: 1px solid gray;
+    margin: 20px;
+  }
+
+.header-title {
+    display: flex;
+    flex: 1;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.add-button {
+    height: 40px;
+    width: 100px;
+    outline: none;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+    color: gray;
+    background: none;
+    font-weight: 800;
+    font-size: large;
+    transition: 0.3s ease;
+}
+
+.add-button:hover {
+    background-color: rgb(95, 95, 95);
+    color: white;
+}
+
+/* .user-profile-icon {
+    background-color: rgb(70, 70, 62);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 2em;
+    margin: 0;
+    height: 50px;
+    min-width: 50px;
+    color: white;
+    border-radius: 50%;
+    padding-bottom: 10px;
+    
+} */
+
+.profile-name-icon {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    background-color: rgb(70, 70, 62);
+    color: white;
+    height: 50px;
+    width: 50px;
+    margin: 0;
+    border-radius: 50%;
+    cursor: pointer;
+}

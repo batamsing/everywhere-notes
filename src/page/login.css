@@ -1,0 +1,58 @@
+.login {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding-top: 10%;
+}
+
+.login-form {
+    width: 500px;
+    border: solid 1px black;
+    padding: 20px;
+    border-radius: 8px;
+}
+
+.form-group {
+    max-width: 500px;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    margin: 10px 0;
+}
+
+.form-group input, select {
+    outline: none;
+    box-shadow: none;
+    border: 1px solid #ccc;
+    border-radius: 3px;
+    padding: 5px 10px;
+}
+
+.register-btn {
+    width: 100%;
+    padding: 10px;
+    background: linear-gradient(45deg, #8a2be2, #9370db);
+    color: white;
+    border: none;
+    cursor: pointer;
+    transition: background 0.3s ease;
+    border-radius: 10px;
+    font-size: larger;
+    transition: 0.3s;
+}
+
+.register-btn:hover {
+    background: linear-gradient(0deg, #8a2be2, #9370db);
+}
+
+.home-container {
+    width: 100%;
+}
+
+.profile-section {
+    background-color: #9370db;
+}
+
+.notes-section {
+    display: flex;
+}
