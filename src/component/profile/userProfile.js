@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useState } from "react";
 import "./profile.css";
 import NoteContext from "../../context/NoteContext";
-import { Link, useNavigate } from "react-router-dom";
+import { useNavigate } from "react-router-dom";
 
 const UserProfile = ({ toggle }) => {
   const { userDetails, handleLogOut, isFetching } = useContext(NoteContext);

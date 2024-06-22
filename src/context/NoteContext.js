@@ -9,7 +9,6 @@ import {
   updateDoc,
   deleteDoc,
 } from "firebase/firestore";
-import { onAuthStateChanged } from "firebase/auth";
 
 // Creating the context
 const NoteContext = createContext();
@@ -255,7 +254,8 @@ export const NoteProvider = ({ children }) => {
         addNote,
         onUpdateNote,
         deleteNote,
-        isUpdating
+        isUpdating,
+        error
       }}
     >
       {children}
