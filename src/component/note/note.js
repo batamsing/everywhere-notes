@@ -2,11 +2,12 @@ import React, { useContext, useState, useEffect } from "react";
 import "./note.css";
 import NoteContext from "../../context/NoteContext";
 
-const Note = () => {
+const Note = (props) => {
   const { activeNote, onUpdateNote, isUpdating } = useContext(NoteContext);
 
   const [editTitle, setEditTitle] = useState("");
   const [editBody, setEditBody] = useState("");
+  const [isOpen, setIsOpen] = useState(false);
 
 
 
@@ -15,6 +16,8 @@ const Note = () => {
       setEditTitle(activeNote.title);
       setEditBody(activeNote.body);
     }
+
+
   }, [activeNote, isUpdating]);
 
   const onEditField = (key, value) => {
@@ -63,9 +66,11 @@ const Note = () => {
         />
         
       </div>
-      <button className="save-btn" onClick={handleSave}>Save</button>
+      <button className={`save-btn ${props.isOpen ? "hide" : "sticky"}`} onClick={handleSave}>Save</button>
     </div>
   );
 };
+
+
 
 export default Note;
