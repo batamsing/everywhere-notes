@@ -9,6 +9,9 @@ import Register from "./page/register";
 import Home from "./page/home/home";
 import NotFound from "./page/NotFound";
 import UserProfile from "./component/profile/userProfile";
+import HelpAndSupport from "./page/help/helpAndSupport";
+import AboutDeveloper from "./page/about/aboutDeveloper";
+import About from "./page/about/about";
 
 function App() {
 
@@ -22,6 +25,9 @@ function App() {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/profile" element={<UserProfile />} />
+          <Route path="/help&support" element={<HelpAndSupport />} />
+          <Route path="/aboutDeveloper" element={<AboutDeveloper />} />
+          <Route path="/about" element={<About />} />
         </Routes>
       </div>
     </Router>

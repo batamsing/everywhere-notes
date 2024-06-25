@@ -10,7 +10,7 @@ import Icon from "../../component/icon/icon";
 import { IoMdClose } from "react-icons/io";
 
 function Home() {
-  const { notes, setActiveNote, isFetching, addNote } = useContext(NoteContext);
+  const { notes, getActiveNote, activeNote, setActiveNote, isFetching, addNote } = useContext(NoteContext);
   const { noteId } = useParams();
   const navigate = useNavigate();
 
@@ -29,6 +29,10 @@ function Home() {
       console.log("no active exist");
     }
   };
+
+  const addNewNote = async () => {
+    await addNote();
+  }
 
   useEffect(() => {
     if (noteId && !isFetching) {
@@ -60,7 +64,7 @@ function Home() {
         </div>
         <div className="header-nav">
           <h3>EVERYWHERE NOTES</h3>
-          <button className="header-add-button" onClick={addNote}>NEW</button>
+          <button className="header-add-button" onClick={addNewNote}>NEW</button>
         </div>
       </div>
       <div className="note">
@@ -74,7 +78,7 @@ function Home() {
                 <Icon />
               </div>
             </div>
-            <button className="add-new-note" onClick={addNote}>ADD NEW NOTE</button>
+            <button className="add-new-note" onClick={addNewNote}>ADD NEW NOTE</button>
             <Sidebar toggle={toggle} />
           </div>
         </div>

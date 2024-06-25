@@ -133,9 +133,9 @@ const UserProfile = ({ toggle }) => {
         <p>Change Theme</p>
       </div>
       <div className="contact-section">
-            <h4>Help & Support</h4>
-            <h4>About the Software</h4>
-            <h4>About the Developer</h4>
+            <h4 onClick={() => alert("Available Soon")}>Help & Support</h4>
+            <h4 onClick={() => alert("Available Soon")}>About the Software</h4>
+            <h4 onClick={() => navigate('/aboutDeveloper')}>About the Developer</h4>
       </div>
       <button className="signout-btn" onClick={handleLogOut}>
         SIGN OUT

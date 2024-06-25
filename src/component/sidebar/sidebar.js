@@ -41,7 +41,7 @@ const Sidebar = (props) => {
               </div>
               <button
                 className="del-button"
-                onClick={() => deleteNote(note.id)}
+                onClick={async () => {await deleteNote(note.id); navigate("/")}}
               >
                 <MdDelete style={{ marginRight: "8px" }} />
               </button>
