@@ -4,7 +4,7 @@ import NoteContext from "../../context/NoteContext";
 import { MdDelete } from "react-icons/md";
 import { useNavigate } from "react-router-dom";
 
-const Sidebar = () => {
+const Sidebar = (props) => {
   const { notes, activeNote, setActiveNote, deleteNote } =
     useContext(NoteContext);
 
@@ -13,6 +13,7 @@ const Sidebar = () => {
     const handleNoteClick = (note) => {
         setActiveNote(note);
         navigate(`/${note.id}`);
+        props.toggle();
     }
 
   return (

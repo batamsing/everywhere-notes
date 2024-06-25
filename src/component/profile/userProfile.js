@@ -130,6 +130,7 @@ const UserProfile = ({ toggle }) => {
       <div className="setting-section">
         <p onClick={() => alert(`Can't update at the moment. Please contact the email: "batampuyam09@gmail.com"`)}>Change Password</p>
         <p onClick={() => alert(`Can't update at the moment. Please contact the email: "batampuyam09@gmail.com"`)}>Setting</p>
+        <p>Change Theme</p>
       </div>
       <div className="contact-section">
             <h4>Help & Support</h4>

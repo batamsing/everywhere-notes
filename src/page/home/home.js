@@ -60,7 +60,7 @@ function Home() {
         </div>
         <div className="header-nav">
           <h3>EVERYWHERE NOTES</h3>
-          <button className="header-add-button">NEW</button>
+          <button className="header-add-button" onClick={addNote}>NEW</button>
         </div>
       </div>
       <div className="note">
@@ -75,7 +75,7 @@ function Home() {
               </div>
             </div>
             <button className="add-new-note" onClick={addNote}>ADD NEW NOTE</button>
-            <Sidebar />
+            <Sidebar toggle={toggle} />
           </div>
         </div>
 

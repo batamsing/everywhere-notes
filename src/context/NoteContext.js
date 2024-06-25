@@ -56,31 +56,6 @@ export const NoteProvider = ({ children }) => {
     
   };
 
-  // const fetchUserData = async () => {
-  //   setIsFetching(true);
-  //   if (isUser) {
-  //   }
-
-  //   auth.onAuthStateChanged(async (user) => {
-  //     if (user) {
-  //       try {
-  //         const docRef = doc(db, "Users", user.uid);
-  //         const docSnap = await getDoc(docRef);
-  //         if (docSnap.exists) {
-  //           setUserDetails(docSnap.data());
-  //         }
-  //         await fetchNotes();
-  //       } catch (error) {
-  //         setError("Failed to fetch user data");
-  //         console.error("Error fetching user data: ", error);
-  //       } finally {
-  //         setIsFetching(false);
-  //       }
-  //     } else {
-  //       window.location.href = "/";
-  //     }
-  //   });
-  // };
 
   const fetchNotes = async () => {
     if (!auth.currentUser) {
@@ -106,47 +81,6 @@ export const NoteProvider = ({ children }) => {
     console.log("notes fetching completed");
   };
 
-  //   if (isUser) {
-  //     const userId = auth.currentUser.uid;
-  //     const notesCollection = collection(db, "Users", userId, "notes");
-
-  //     try {
-  //       const notesSnapshot = await getDocs(notesCollection);
-  //       const notesList = notesSnapshot.docs.map((doc) => ({
-  //         id: doc.id,
-  //         ...doc.data(),
-  //       }));
-  //       setNotes(notesList);
-  //       console.log("notes fetching completed");
-  //     } catch (error) {
-  //       console.error("Error fetching notes: ", error);
-  //     }
-  //   } else {
-  //     console.log("No user found");
-  //     console.log("no notes can be fetched");
-  //   }
-  // };
-
-  // if (!auth.currentUser) {
-  //   alert("Please sign in first");
-  //   return;
-  // }
-
-  // const userId = auth.currentUser.uid;
-  // const notesCollection = collection(db, "Users", userId, "notes");
-
-  // try {
-  //   const notesSnapshot = await getDocs(notesCollection);
-  //   const notesList = notesSnapshot.docs.map((doc) => ({
-  //     id: doc.id,
-  //     ...doc.data(),
-  //   }));
-  //   setNotes(notesList);
-  // } catch (error) {
-  //   console.error("Error fetching notes: ", error);
-  // }
-  //   console.log("notes fetching completed");
-  // };
 
   useEffect(() => {
     fetchUserData();
@@ -174,7 +108,12 @@ export const NoteProvider = ({ children }) => {
       const id = docRef.id;
       const noteWithFirestoreId = { ...newNote, id };
       setNotes([noteWithFirestoreId, ...notes]);
+
+      setActiveNote(noteWithFirestoreId);
+      
+   
     } catch (error) {
+      setError(error.message);
       console.error("Error adding note: ", error);
     }
   };

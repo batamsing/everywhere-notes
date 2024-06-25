@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Link } from "react-router-dom";
 import { auth, db } from "../component/firebase/firebase";
 import "./login.css";
@@ -12,9 +12,11 @@ function Register() {
   const [password, setPassword] = useState("");
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
+  const [isRegisteredComplete, setIsRegisteredComplete] = useState(true);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await setIsRegisteredComplete(false);
 
     if (password !== confirmPassword) {
       return alert("Password do not match! Please try agian");
@@ -22,6 +24,7 @@ function Register() {
 
     try {
       setIsLoading(true);
+
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       if (user) {
@@ -30,19 +33,30 @@ function Register() {
           fullName: fullName,
           gender: gender,
         });
+        console.log("User registered successfully");
+        await setIsRegisteredComplete(true);
       }
 
-      console.log("User registered successfully");
-      setIsLoading(false);
-      window.location.href=("/");
+      // window.location.href = "/";
     } catch (error) {
       console.log(error.message);
+    } finally {
+      setIsLoading(false);
     }
-    setIsLoading(false);
-    console.log("Fullname: ", fullName);
-    console.log("Email: ", email);
-    console.log("Password: ", password);
   };
+
+  useEffect(() => {
+    const unsubscribe = auth.onAuthStateChanged((user) => {
+      console.log("Auth state changed:", user);
+      if (user && isRegisteredComplete) {
+        console.log("User already signed in, redirecting...");
+        window.location.href = "/";
+      } 
+      
+    });
+
+    return () => unsubscribe(); // Cleanup function to remove the listener on component unmount
+  }, [isRegisteredComplete]);
 
   return (
     <div className="login">
@@ -103,11 +117,10 @@ function Register() {
             required
           />
         </div>
-        
-          <button className="register-btn" type="submit">
-            {isLoading ? "LOADING..." : "REGISTER"}
-          </button>
-        
+
+        <button className="register-btn" type="submit">
+          {isLoading ? "LOADING..." : "REGISTER"}
+        </button>
 
         <div>
           <p>
