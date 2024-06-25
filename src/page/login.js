@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import { auth } from "../component/firebase/firebase";
 import "./login.css";
 import { signInWithEmailAndPassword } from "firebase/auth";
@@ -13,22 +13,22 @@ function Login() {
     e.preventDefault();
     setIsLoading(true);
     try {
-        await signInWithEmailAndPassword(auth, email, password);
-        setIsLoading(false);
-        window.location.href = "/Home";
-        console.log("User logged in successfully!");
+      await signInWithEmailAndPassword(auth, email, password);
+      setIsLoading(false);
+      window.location.href = "/Home";
+      console.log("User logged in successfully!");
     } catch (error) {
-        alert("Invalid Email and Password! Please try again");
-        console.log(error.message);
+      alert("Invalid Email and Password! Please try again");
+      console.log(error.message);
     }
     setIsLoading(false);
   };
 
   return (
     <div className="login">
-        
+      <h2>Everywhere Notes</h2>
       <form onSubmit={handleSubmit} className="login-form">
-      <h2>Login</h2>
+        <h2>Login</h2>
         <div className="form-group">
           <label>Email</label>
           <input
@@ -48,8 +48,8 @@ function Login() {
           />
         </div>
         <button className="register-btn" type="submit">
-          {isLoading? "LOADING..." : "SIGN IN"}
-          </button>
+          {isLoading ? "LOADING..." : "SIGN IN"}
+        </button>
         <div>
           <p>
             Don't have an account? <Link to="/register">Register Here</Link>
@@ -57,10 +57,12 @@ function Login() {
         </div>
 
         <div>
-            <p>or sign up using</p>
-            <div>
-                <a href="#"><img src="" alt="" /></a>
-            </div>
+          <p>or sign up using</p>
+          <div>
+            <a href="#">
+              <img src="" alt="" />
+            </a>
+          </div>
         </div>
       </form>
     </div>

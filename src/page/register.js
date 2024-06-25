@@ -13,18 +13,28 @@ function Register() {
   const [confirmPassword, setConfirmPassword] = useState("");
   const [isLoading, setIsLoading] = useState(false);
   const [isRegisteredComplete, setIsRegisteredComplete] = useState(true);
+  const [error, setError] = useState("");
 
   const handleSubmit = async (e) => {
     e.preventDefault();
     await setIsRegisteredComplete(false);
+  
+    setError('');
 
     if (password !== confirmPassword) {
-      return alert("Password do not match! Please try agian");
+      return setError("Passwords do not match! Please try again");
     }
 
+    // Password length validation
+    if (password.length < 6) {
+      return setError("Password should be at least 6 characters long.");
+    }
+
+    
+  
     try {
       setIsLoading(true);
-
+  
       await createUserWithEmailAndPassword(auth, email, password);
       const user = auth.currentUser;
       if (user) {
@@ -36,14 +46,20 @@ function Register() {
         console.log("User registered successfully");
         await setIsRegisteredComplete(true);
       }
-
+  
       // window.location.href = "/";
     } catch (error) {
-      console.log(error.message);
+      if (error.code === 'auth/email-already-in-use') {
+        alert("The email address is already in use. Please use a different email.");
+      } else {
+        console.log(error.message);
+        alert("An error occurred during registration. Please try again.");
+      }
     } finally {
       setIsLoading(false);
     }
   };
+  
 
   useEffect(() => {
     const unsubscribe = auth.onAuthStateChanged((user) => {
@@ -60,6 +76,7 @@ function Register() {
 
   return (
     <div className="login">
+      <h2>Everywhere Notes</h2>
       <form onSubmit={handleSubmit} className="login-form">
         <h2>Register</h2>
         <div className="form-group">
@@ -117,6 +134,7 @@ function Register() {
             required
           />
         </div>
+        {error && <p style={{ color: 'red' }}>{error}</p>}
 
         <button className="register-btn" type="submit">
           {isLoading ? "LOADING..." : "REGISTER"}
