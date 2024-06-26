@@ -1,7 +1,6 @@
-import React, { useContext, useState } from 'react';
+import React, { useContext } from 'react';
 import "./icon.css";
 import NoteContext from '../../context/NoteContext'; 
-import UserProfile from '../profile/userProfile';
 import { useNavigate } from 'react-router-dom';
 
 const Icon = () => {

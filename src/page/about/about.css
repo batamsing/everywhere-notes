@@ -5,6 +5,12 @@
     padding: 20px;
 }
 
+@media (min-width: 768px) {
+    .about-container {
+        padding: 20px 30%;
+    }
+}
+
 .image {
     width: 150px;
     height: 150px;

@@ -1,6 +1,5 @@
 import React, { useContext, useEffect, useState } from "react";
 import Sidebar from "../../component/sidebar/sidebar";
-import Header from "../../component/header/header";
 import Note from "../../component/note/note";
 import { useParams, useNavigate } from "react-router-dom";
 import NoteContext from "../../context/NoteContext";
@@ -10,7 +9,7 @@ import Icon from "../../component/icon/icon";
 import { IoMdClose } from "react-icons/io";
 
 function Home() {
-  const { notes, getActiveNote, activeNote, setActiveNote, isFetching, addNote } = useContext(NoteContext);
+  const { notes, setActiveNote, isFetching, addNote } = useContext(NoteContext);
   const { noteId } = useParams();
   const navigate = useNavigate();
 
@@ -54,7 +53,6 @@ function Home() {
     <div className="home">
       <div className="header-section">
         <div className="header-sidebar">
-          {/* <button className="sidebar-add-button">NEW</button> */}
           <div className="hamburger" onClick={toggle}>
             <GiHamburgerMenu />
           </div>

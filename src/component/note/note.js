@@ -64,9 +64,9 @@ const Note = (props) => {
           value={editBody}
           onChange={(e) => onEditField("body", e.target.value)}
         />
-        
+        <button className={`save-btn ${props.isOpen ? "hide" : "sticky"}`} onClick={handleSave}>Save</button>
       </div>
-      <button className={`save-btn ${props.isOpen ? "hide" : "sticky"}`} onClick={handleSave}>Save</button>
+      
     </div>
   );
 };
